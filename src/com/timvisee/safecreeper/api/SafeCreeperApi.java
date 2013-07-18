@@ -6,6 +6,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
 import com.timvisee.safecreeper.SafeCreeper;
+import com.timvisee.safecreeper.api.manager.SCAPermissionsManager;
+import com.timvisee.safecreeper.manager.SCPermissionsManager;
 
 public class SafeCreeperApi {
 	
@@ -13,6 +15,8 @@ public class SafeCreeperApi {
 	
 	private SafeCreeper sc;
 	private Plugin p;
+	
+	private SCAPermissionsManager pm;
 	
 	/**
 	 * Constructor
@@ -147,5 +151,13 @@ public class SafeCreeperApi {
 	 */
 	public String getVersion() {
 		return this.sc.getVersion();
+	}
+	
+	/**
+	 * Get the Safe Creeper permissions manager
+	 * @return
+	 */
+	public SCAPermissionsManager getPermissionsManager() {
+		return new SCAPermissionsManager(this.sc.getPermissionsManager());
 	}
 }
